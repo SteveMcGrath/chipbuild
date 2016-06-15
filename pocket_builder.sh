@@ -28,7 +28,7 @@ if [ "$BROWSER" == "dwb" ];then
 
 	# Next lets go ahead and download the dwb config file
 	# that seems to work well with the PocketCHIP
-	wget -O ~/.config/dwb/settings $REPO/configs/dwb-settings
+	wget -qO ~/.config/dwb/settings $REPO/configs/dwb-settings
 fi
 
 # To keep things nice and clean, we will build out a profile_scripts
@@ -74,7 +74,7 @@ echo '[*] Replacing the default pocket-home config'
 if [ ! -f /usr/share/pocket-home/config-orig.json ];then
 	sudo mv /usr/share/pocket-home/config.json /usr/share/pocket-home/config-orig.json
 fi
-sudo wget -O /usr/share/pocket-home/config.json $REPO/configs/pocket-home-template.json
+sudo wget -qO /usr/share/pocket-home/config.json $REPO/configs/pocket-home-template.json
 sudo sed -i "s/BROWSER_EXEC/${BROWSER}/g" /usr/share/pocket-home/config.json
 
 # Now that the new config file is written, lets go ahead and bounce the
