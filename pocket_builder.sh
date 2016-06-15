@@ -11,6 +11,9 @@ sudo apt-get update
 # Now lets install the software that we want.
 sudo apt-get -y install openssh-client\
 						openssh-server\
+						irssi\
+						dnsutils\
+						moc\
 					    $BROWSER
 
 # Now lets disable the SSH service.  We don't want this
@@ -50,10 +53,14 @@ fi
 
 # If there isnt an aliases.sh file, then we will create one with some defaults added in.
 if [ ! -f "$HOME/.profile_scripts/aliases.sh" ];then
+	ALIASES=$HOME/.profile_scripts/aliases.sh
 	echo "[*] Creating default aliases file"
-	echo 'alias sshon="sudo systemctl start ssh"' > $HOME/.profile_scripts/aliases.sh
-	echo 'alias sshoff="sudo systemctl stop ssh"' >> $HOME/.profile_scripts/aliases.sh
-	echo "alias getip=\"ip addr | awk '/inet/ {print $2}'\"" >> $HOME/.profile_scripts/aliases.sh
+	echo 'alias sshon="sudo systemctl start ssh"' 				>  $ALIASES
+	echo 'alias sshoff="sudo systemctl stop ssh"' 				>> $ALIASES
+	echo "alias getip=\"ip addr | awk '/inet/ {print $2}'\"" 	>> $ALIASES
+	echo 'alias ll="ls -al"'									>> $ALIASES
+	echo 'alias pgr="ps -ef | grep"'							>> $ALIASES
+	echo 'alias sag="sudo apt-get install"'						>> $ALIASES
 fi
 
 # Now to replace the pocket-home configuration file with our templated one and to
