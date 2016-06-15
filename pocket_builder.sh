@@ -14,8 +14,8 @@ sudo apt-get -y install openssh-client openssh-server\
 
 # Now lets disable the SSH service.  We don't want this
 # firing up unless we tell it to.
-systemctl disable ssh 
-systemctl stop ssh
+sudo systemctl disable ssh 
+sudo systemctl stop ssh
 
 # If the browser is set to dwb, then we will want to
 # setup the configuration file for dwb.
@@ -71,7 +71,7 @@ echo '*********************************************'
 # new template.  From there we need to replace the temnplated value with
 # the browser that we will be using.
 echo '[*] Replacing the default pocket-home config'
-mv /usr/share/pocket-home/config.json /usr/share/pocket-home/config-orig.json
+sudo mv /usr/share/pocket-home/config.json /usr/share/pocket-home/config-orig.json
 sudo wget -O /usr/share/pocket-home/config.json $REPO/configs/pocket-home-template.json
 sudo sed -i "s/BROWSER_EXEC/${BROWSER}/g" /usr/share/pocket-home/config.json
 
