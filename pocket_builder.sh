@@ -77,4 +77,8 @@ sudo sed -i "s/BROWSER_EXEC/${BROWSER}/g" /usr/share/pocket-home/config.json
 
 # Now that the new config file is written, lets go ahead and bounce the
 # pocket-home service.
-sudo skill pocket-home 
+sudo skill pocket-home
+
+# Informing the user what to do next.
+echo ''
+echo '\(^-^)/ Install Completed!  Type "exit" and restart the terminal.'
