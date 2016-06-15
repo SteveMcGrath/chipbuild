@@ -9,7 +9,8 @@ REPO="https://raw.githubusercontent.com/SteveMcGrath/chipbuild/master"
 sudo apt-get update 
 
 # Now lets install the software that we want.
-sudo apt-get -y install openssh-client openssh-server\
+sudo apt-get -y install openssh-client\
+						openssh-server\
 					    $BROWSER
 
 # Now lets disable the SSH service.  We don't want this
