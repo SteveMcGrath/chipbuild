@@ -70,7 +70,7 @@ if [ "$answer" == "y" ];then
 	# new template.  From there we need to replace the temnplated value with
 	# the browser that we will be using.
 	mv /usr/share/pocket-home/config.json /usr/share/pocket-home/config-orig.json
-	wget -O /usr/share/pocket-home/config.json $REPO/configs/pocket-home-template.json
+	sudo wget -O /usr/share/pocket-home/config.json $REPO/configs/pocket-home-template.json
 	sudo sed -i "s/BROWSER_EXEC/${BROWSER}/g" /usr/share/pocket-home/config.json
 
 	# Now that the new config file is written, lets go ahead and bounce the
