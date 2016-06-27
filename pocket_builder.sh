@@ -61,7 +61,9 @@ if [ ! -f "$HOME/.profile_scripts/aliases.sh" ];then
     echo "alias getip=\"ip addr | awk '/inet/ {print $2}'\""    >> $ALIASES
     echo 'alias ll="ls -al"'                                    >> $ALIASES
     echo 'alias pgr="ps -ef | grep"'                            >> $ALIASES
-    echo 'alias sag="sudo apt-get install"'                     >> $ALIASES
+    echo 'alias sagi="sudo apt-get install"'                    >> $ALIASES
+    echo 'alias sagu="sudo apt-get update"'                     >> $ALIASES
+    echo 'alias sags="apt-cache search"'                        >> $ALIASES
 fi
 
 # Now to replace the pocket-home configuration file with our templated one and to
@@ -92,9 +94,15 @@ sudo wget -qO /usr/share/pocket-home/config.json $REPO/configs/pocket-home-templ
 sudo sed -i "s/BROWSER_EXEC/${BROWSER}/g" /usr/share/pocket-home/config.json
 
 # Now that the new config file is written, lets go ahead and bounce the
-# pocket-home service.
+# pocket-home service.  LightDM will pick it back up.  This means that there
+# is no need to restart the PocketCHIP to get the GUI back up, just a matter
+# of killing the service and waiting for it to restart.
 sudo skill pocket-home
 
-# Informing the user what to do next.
+# Lastly, lets start up the SSH service as a precaution.
+sudo systemctl start ssh
+
+echo ' -- NOTE: SSH Service Started as a debugging precaution.'
+echo '          Type sshoff in a terminal to turn off.'
 echo ''
 echo '\(^-^)/ Install Completed!  Type "exit" and restart the terminal.'
