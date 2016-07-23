@@ -74,7 +74,7 @@ echo '* with the bworser icon and set the browser *'
 echo "* to be $BROWSER.  Please note that this    *"
 echo '* will overwrite any other changes you may  *'
 echo '* have made to the home screen.  The file   *'
-echo '* currenthle installed will be located at:  *'
+echo '* currently installed will be located at:  *'
 echo '*  /usr/share/pocket-home/config-orig.json  *'
 echo '*********************************************'
 
